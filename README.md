@@ -1,43 +1,52 @@
 # Recursive-function
 
-##Aim: To write a C# program to reverse a number using recursive function.
+## Aim: 
+To write a C# program to reverse a number using recursive function.
 
-##Algorithm:
-1)create a class and then declarea main function
-2)
-
-##Program:
-```
+## Algorithm:
+ ### Step1:
+Create a function for reversing.
+### Step2:
+Get the number from the user.
+### Step3:
+In the function find reminder of the number and multiply it by 10 and add the reverse number.
+### Step4:
+Recusively call this function to get the reversed number.
+### Step5:
+print the reversed number.
+## Program:
+```c#
 using System;
-class example
+
+namespace exp7
 {
-    public static void fun(int n)
+    class Program
     {
-        if(n < 1)
+        int rem = 0, rev = 0;
+        public int reverse(int n)
         {
-            
-            return;
+            rem = n % 10;
+            if (rem == 0) return rev;
+            else
+            {
+                rev = rev * 10 + rem;
+                return reverse(n / 10);
+            }
         }
-        else
+        static void Main(string[] args)
         {
-            Console.Write(n % 10);
-            fun(n / 10);
+            int n;
+            Console.WriteLine("Enter a Number to reverse: ");
+            n = Convert.ToInt32(Console.ReadLine());
+
+            Program p1 = new Program();
+            Console.WriteLine("Reversed Number is "+ p1.reverse(n));
         }
-    }
-    public static void Main()
-    {
-        int i;
-        i = Convert.ToInt32(Console.ReadLine());
-        fun(123);
-        
     }
 }
-
-
 ```
+## Output:
+![image](https://user-images.githubusercontent.com/75235488/170664396-8221d957-d4d8-425b-b6df-dfc121360d52.png)
 
-##Output:
-![image](https://user-images.githubusercontent.com/75235128/170473821-d3d6713c-3ac6-4fc5-a365-5e7f08659bb0.png)
-
-##Result:
-Thus C# program to reverse a number using recursive function is written and executed sucessfully.
+## Result:
+C# program to reverse a number using recursive function is executed successfully.
